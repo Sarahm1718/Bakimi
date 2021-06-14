@@ -1,7 +1,8 @@
-package com.co.sofka.Bakimi.commands;
+package com.co.sofka.Bakimi.Domain.routines.commands;
 
 import co.com.sofka.domain.generic.Command;
-import com.co.sofka.Bakimi.values.*;
+import com.co.sofka.Bakimi.Domain.routines.values.*;
+
 
 public class CreateRoutines implements Command {
     private  final RoutinesId routinesId;

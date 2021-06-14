@@ -1,7 +1,7 @@
-package com.co.sofka.Bakimi.events;
+package com.co.sofka.Bakimi.Domain.routines.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import com.co.sofka.Bakimi.values.*;
+import com.co.sofka.Bakimi.Domain.routines.values.*;
 
 public class RoutinesCreated extends DomainEvent {
     private  final RoutinesId routinesId;

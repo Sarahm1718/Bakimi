@@ -1,4 +1,4 @@
-package com.co.sofka.Bakimi.values;
+package com.co.sofka.Bakimi.Domain.routines.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 

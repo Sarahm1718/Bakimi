@@ -1,10 +1,10 @@
-package com.co.sofka.Bakimi.useCase;
+package com.co.sofka.Bakimi.Domain.routines.useCase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import com.co.sofka.Bakimi.commands.CreateRoutines;
-import com.co.sofka.Bakimi.events.RoutinesCreated;
-import com.co.sofka.Bakimi.values.*;
+import com.co.sofka.Bakimi.Domain.routines.commands.CreateRoutines;
+import com.co.sofka.Bakimi.Domain.routines.events.RoutinesCreated;
+import com.co.sofka.Bakimi.Domain.routines.values.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

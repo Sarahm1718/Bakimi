@@ -1,9 +1,9 @@
-package com.co.sofka.Bakimi;
+package com.co.sofka.Bakimi.Domain.routines;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import com.co.sofka.Bakimi.events.RoutinesCreated;
-import com.co.sofka.Bakimi.values.*;
+import com.co.sofka.Bakimi.Domain.routines.events.RoutinesCreated;
+import com.co.sofka.Bakimi.Domain.routines.values.*;
 
 import java.util.List;
 

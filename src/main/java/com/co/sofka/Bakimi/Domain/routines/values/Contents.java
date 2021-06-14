@@ -1,17 +1,17 @@
-package com.co.sofka.Bakimi.values;
+package com.co.sofka.Bakimi.Domain.routines.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-public class RoutinesName implements ValueObject<String> {
+public class Contents implements ValueObject<String> {
     private  final String value;
 
-    public RoutinesName(String value){
+    public Contents(String value){
         this.value = value;
     }
 
 
     @Override
     public String value() {
-        return value;
+        return null;
     }
 }
