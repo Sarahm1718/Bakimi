@@ -20,19 +20,19 @@ public class UsernameCreated extends DomainEvent {
         this.idUsuario = idUsuario;
     }
 
-    public Name getName() {
+    public Name Name() {
         return name;
     }
 
-    public Email getEmail() {
+    public Email Email() {
         return email;
     }
 
-    public TypeSkin getTypeSkin() {
+    public TypeSkin TypeSkin() {
         return typeSkin;
     }
 
-    public IdUsuario getIdUsuario() {
+    public IdUsuario IdUsuario() {
         return idUsuario;
     }
 }
