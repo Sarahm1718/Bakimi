@@ -15,7 +15,7 @@ public class CreateRoutinesUseCase extends UseCase<RequestCommand<CreateRoutines
     @Override
     public void executeUseCase(RequestCommand<CreateRoutines> createRoutinesRequestCommand) {
             var command = createRoutinesRequestCommand.getCommand();
-            var routines = new Routines(command.RoutinesId(), command.RoutinesName(), command.Products(), command.DescriptionRoutines(), command.IdUsuario(), command.TypeSkin());
+            var routines = new Routines(command.RoutinesId(), command.RoutinesName(), command.IdUsuario(), command.TypeSkin());
             iRoutineRepository.save(routines);
             emit().onResponse(new Response(routines));
         }

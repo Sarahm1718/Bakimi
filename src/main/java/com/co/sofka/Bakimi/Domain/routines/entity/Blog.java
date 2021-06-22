@@ -13,12 +13,33 @@ public class Blog extends Entity<IdPublication>{
     protected Tittle tittle;
     protected Contents contents;
 
-    public Blog(IdPublication entityId) {
+
+    public Blog(IdPublication entityId, IdCommentary idCommentary, IdUsuario idUsuario, IdPublication idPublication, Tittle tittle, Contents contents) {
         super(entityId);
+        this.idCommentary = idCommentary;
+        this.idUsuario = idUsuario;
+        this.idPublication = idPublication;
+        this.tittle = tittle;
+        this.contents = contents;
     }
 
+    public IdCommentary getIdCommentary() {
+        return idCommentary;
+    }
 
-    public Blog(IdPublication entityId, IdUsuario idUsuario, Contents contents, Tittle tittle, IdCommentary idCommentary) {
-        super(entityId);
+    public IdUsuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public IdPublication getIdPublication() {
+        return idPublication;
+    }
+
+    public Tittle getTittle() {
+        return tittle;
+    }
+
+    public Contents getContents() {
+        return contents;
     }
 }

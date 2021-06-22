@@ -24,6 +24,11 @@ public  class Routines extends AggregateRoot<RoutinesId> {
 
     }
 
+    public Routines(RoutinesId routinesId, RoutinesName routinesName, IdUsuario idUsuario, TypeSkin typeSkin) {
+        super(routinesId);
+
+    }
+
     public RoutinesName getRoutinesName() {
         return routinesName;
     }

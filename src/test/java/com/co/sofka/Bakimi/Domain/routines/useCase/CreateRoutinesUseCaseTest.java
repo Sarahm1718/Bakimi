@@ -2,30 +2,35 @@ package com.co.sofka.Bakimi.Domain.routines.useCase;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
+import com.co.sofka.Bakimi.Domain.routines.Routines;
 import com.co.sofka.Bakimi.Domain.routines.commands.CreateRoutines;
 import com.co.sofka.Bakimi.Domain.routines.events.RoutinesCreated;
+import com.co.sofka.Bakimi.Domain.routines.repository.IRoutineRepository;
 import com.co.sofka.Bakimi.Domain.routines.values.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.CrudRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CreateRoutinesUseCaseTest {
+/*@RunWith(MockitoJUnitRunner.class)
+public class CreateRoutinesUseCaseTest {
+    @Autowired
+    private CreateRoutinesUseCase useCase;
+
+    @InjectMocks
+    private IRoutineRepository iRoutineRepository;
+
+    @InjectMocks
+    private CrudRepository crudRepository;
+
     @Test
     public void createRoutinesUseCaseTest(){
-        var command = new CreateRoutines(RoutinesId.of("0"), new RoutinesName("RoutinesName"), new Products("Products"), new IdUsuario("IdUsuario"), new DescriptionRoutines("DescriptionRoutines"), new TypeSkin("TypeSkin"));
-        RoutinesCreated routinesCreated = executeUseCase(command);
-        Assertions.assertEquals("0", routinesCreated.RoutinesId().value());
-    }
+        Mockito.when(crudRepository.saveAll(any())).thenReturn(new Routines(RoutinesId.of("123"), new RoutinesName("Noche"), new ))
 
-    private RoutinesCreated executeUseCase(CreateRoutines command){
-        var usecase = new CreateRoutinesUseCase();
-        var events = UseCaseHandler.getInstance()
-                .syncExecutor(usecase, new RequestCommand<>(command))
-                .orElseThrow()
-                .getDomainEvents();
-        var routinesCreated =(RoutinesCreated) events.get(0);
-        return routinesCreated;
-    }
-
-}
+        */
