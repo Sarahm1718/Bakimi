@@ -1,13 +1,13 @@
-package com.co.sofka.Bakimi.Domain.routines;
+package com.co.sofka.Bakimi.Domain.routines.entity;
 
-import co.com.sofka.domain.generic.AggregateRoot;
 
+import co.com.sofka.domain.generic.Entity;
 import com.co.sofka.Bakimi.Domain.routines.values.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document(collation = "Rutinas")
-public  class Routines extends AggregateRoot<RoutinesId> {
+public  class Routines extends Entity<RoutinesId> {
     protected RoutinesName routinesName;
     protected Products products;
     protected DescriptionRoutines descriptionRoutines;

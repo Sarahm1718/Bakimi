@@ -1,4 +1,4 @@
-package com.co.sofka.Bakimi.Domain.routines;
+package com.co.sofka.Bakimi.Domain.routines.entity;
 
 import com.co.sofka.Bakimi.Domain.routines.values.*;
 

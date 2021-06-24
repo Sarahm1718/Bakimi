@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CreateUsernameUserCaseTest {
+/*class CreateUsernameUserCaseTest {
     @Test
     public void CreateUsernameTest(){
         var command = new CreateUsername(new Name("Name"), new Email("Email"), new TypeSkin("TypeSkin"), new IdUsuario("0"));
@@ -32,4 +32,4 @@ class CreateUsernameUserCaseTest {
 
     }
 
-}
+}*/

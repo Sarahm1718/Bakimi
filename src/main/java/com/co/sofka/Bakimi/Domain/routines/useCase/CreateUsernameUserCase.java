@@ -5,7 +5,7 @@ import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.domain.generic.DomainEvent;
 import com.co.sofka.Bakimi.Domain.routines.commands.CreateUsername;
-import com.co.sofka.Bakimi.Domain.routines.entity.Username;
+import com.co.sofka.Bakimi.Domain.routines.Username;
 import com.co.sofka.Bakimi.Domain.routines.events.UsernameCreated;
 
 import java.util.ArrayList;

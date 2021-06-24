@@ -8,7 +8,7 @@ import com.co.sofka.Bakimi.Domain.routines.values.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class CreatePublicationUseCaseTest {
+/*class CreatePublicationUseCaseTest {
     @Test
     public void CreatePublicationTest(){
         var command = new CreatePublication(new IdCommentary("IdCommentary"), new IdUsuario("IdUsuario"), new Tittle("Tittle"), new Contents("Contents"), IdPublication.of("0"));
@@ -27,4 +27,4 @@ class CreatePublicationUseCaseTest {
     }
 
 
-}
+}*/

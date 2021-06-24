@@ -18,6 +18,7 @@ public class CreatePublication implements Command {
         this.idPublication = idPublication;
     }
 
+
     public IdCommentary IdCommentary() {
         return idCommentary;
     }

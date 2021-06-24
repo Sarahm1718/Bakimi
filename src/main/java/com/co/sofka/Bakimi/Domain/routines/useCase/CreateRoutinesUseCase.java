@@ -2,11 +2,14 @@ package com.co.sofka.Bakimi.Domain.routines.useCase;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
-import com.co.sofka.Bakimi.Domain.routines.Routines;
+import com.co.sofka.Bakimi.Domain.routines.entity.Routines;
 import com.co.sofka.Bakimi.Domain.routines.commands.CreateRoutines;
 import com.co.sofka.Bakimi.Domain.routines.repository.IRoutineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class CreateRoutinesUseCase extends UseCase<RequestCommand<CreateRoutines>, CreateRoutinesUseCase.Response> {
 
     @Autowired
