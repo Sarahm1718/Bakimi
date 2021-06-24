@@ -12,9 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 
-public class CreatePublicationUseCase extends UseCase<RequestCommand<CreatePublication>, CreatePublication.Response> {
+public class CreatePublicationUseCase extends UseCase<RequestCommand<CreatePublication>, CreatePublicationUseCase.Response> {
     @Autowired
     private IBlogRepository iBlogRepository;
+
 
     @Override
     public void executeUseCase(RequestCommand<CreatePublication> createPublicationRequestCommand) {
@@ -23,25 +24,23 @@ public class CreatePublicationUseCase extends UseCase<RequestCommand<CreatePubli
         iBlogRepository.save(blog);
         emit().onResponse(new Response(blog));
     }
-}
-
-
 
     public static class Response implements UseCase.ResponseValues{
-
         private Blog response;
 
-
-        public Response(Blog blog) {
-            this.response=blog;
-        }
+        public Response(Blog blog){this.response=blog;}
 
         public Blog getResponse() {
             return response;
         }
 
-        public void setResponse(Routines response) {
+        public void setResponse(Blog response) {
             this.response = response;
         }
     }
+}
+
+
+
+
 
