@@ -12,11 +12,27 @@ public class Username extends Entity<IdUsuario> {
     protected TypeSkin typeSkin;
     protected IdUsuario idUsuario;
 
-    public Username(IdUsuario entityId) {
+    public Username(IdUsuario entityId, Name name, Email email, TypeSkin typeSkin, IdUsuario idUsuario) {
         super(entityId);
+        this.name = name;
+        this.email = email;
+        this.typeSkin = typeSkin;
+        this.idUsuario = idUsuario;
     }
 
-    public Username(IdUsuario entityId, Name name, Email email, TypeSkin typeSkin) {
-        super(entityId);
+    public Name getName() {
+        return name;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public TypeSkin getTypeSkin() {
+        return typeSkin;
+    }
+
+    public IdUsuario getIdUsuario() {
+        return idUsuario;
     }
 }

@@ -23,6 +23,10 @@ public class Blog extends Entity<IdPublication>{
         this.contents = contents;
     }
 
+    public Blog(IdPublication entityId, IdCommentary idCommentary, IdUsuario idUsuario, Contents contents, Tittle tittle) {
+        super(entityId);
+    }
+
     public IdCommentary getIdCommentary() {
         return idCommentary;
     }
