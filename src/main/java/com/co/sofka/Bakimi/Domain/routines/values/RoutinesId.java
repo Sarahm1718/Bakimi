@@ -3,10 +3,10 @@ package com.co.sofka.Bakimi.Domain.routines.values;
 import co.com.sofka.domain.generic.Identity;
 
 public class RoutinesId extends Identity {
-    private RoutinesId(String id){
-        super(id);
+    private RoutinesId(String idroutines){
+        super(idroutines);
     }
-    public static RoutinesId of(String id){
-        return  new RoutinesId(id);
+    public static RoutinesId of(String idroutines){
+        return  new RoutinesId(idroutines);
     }
 }

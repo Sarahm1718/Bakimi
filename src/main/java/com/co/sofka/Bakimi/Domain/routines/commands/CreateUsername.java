@@ -12,7 +12,7 @@ public class CreateUsername implements Command {
     private final TypeSkin typeSkin;
     private final IdUsuario idUsuario;
 
-    public CreateUsername(Name name, Email email, TypeSkin typeSkin, IdUsuario idUsuario) {
+    public CreateUsername(Name name, Email email, TypeSkin typeSkin, Name idUsuario) {
         this.name = name;
         this.email = email;
         this.typeSkin = typeSkin;

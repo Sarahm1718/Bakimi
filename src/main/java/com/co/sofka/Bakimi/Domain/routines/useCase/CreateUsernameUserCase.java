@@ -2,10 +2,8 @@ package com.co.sofka.Bakimi.Domain.routines.useCase;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.sofka.business.support.ResponseEvents;
 import com.co.sofka.Bakimi.Domain.routines.Username;
 import com.co.sofka.Bakimi.Domain.routines.commands.CreateUsername;
-import com.co.sofka.Bakimi.Domain.routines.repository.IRoutineRepository;
 import com.co.sofka.Bakimi.Domain.routines.repository.IUsernameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

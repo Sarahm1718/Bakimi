@@ -1,9 +1,10 @@
 package com.co.sofka.Bakimi.Domain.routines.controller;
 
 
+import co.com.sofka.business.generic.UseCaseHandler;
+import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Bakimi.Domain.routines.commands.CreatePublication;
 import com.co.sofka.Bakimi.Domain.routines.useCase.CreatePublicationUseCase;
-import com.co.sofka.Bakimi.Domain.routines.useCase.CreateRoutinesUseCase;
 import com.co.sofka.Bakimi.Domain.routines.values.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/*@RestController
+@RestController
 @CrossOrigin(origins = "*")
 public class BlogController {
     @Autowired
@@ -25,12 +26,19 @@ public class BlogController {
                        @PathVariable("contents") String contents
                        ){
         var command = new CreatePublication(new IdCommentary(idCommentary), new IdUsuario(idUsuario), new Tittle(tittle), new Contents(contents), IdPublication.of(idPublication));
-        CreateRoutinesUseCase.Response publicationCreated = executedUseCase(command);
-        return (publicationCreated.getResponse().
+        CreatePublicationUseCase.Response publicationCreated = executedUseCase(command);
+        return (publicationCreated.getResponse().getIdPublication().value()+ " "+publicationCreated.getResponse().getIdUsuario().value()+ " "+publicationCreated.getResponse().getContents().value()+ " "+publicationCreated.getResponse().getTittle().value()+ " "+publicationCreated.getResponse().getIdCommentary().value());
 
     }
 
-    private CreateRoutinesUseCase.Response executedUseCase(CreatePublication command) {
-    }
+    private CreatePublicationUseCase.Response executedUseCase(CreatePublication command) {
+        var events = UseCaseHandler.getInstance()
+                .syncExecutor(useCase, new RequestCommand<>(command))
+                .orElseThrow();
+        var PublicationCreated = events;
+        return PublicationCreated;
+    }}
 
-}*/
+
+
+

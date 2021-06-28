@@ -9,8 +9,9 @@ public class Email implements ValueObject {
         this.value = value;
     }
 
+
     @Override
-    public  String value(){
-        return value;
+    public String value() {
+        return null;
     }
 }

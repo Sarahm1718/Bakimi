@@ -12,7 +12,7 @@ public final class BlogBuilder {
     private BlogBuilder() {
     }
 
-    public static BlogBuilder aBlog() {
+    public static BlogBuilder Blog() {
         return new BlogBuilder();
     }
 
