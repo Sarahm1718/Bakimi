@@ -1,23 +1,26 @@
 package com.co.sofka.Bakimi.Domain.username.entity;
 
-import com.co.sofka.Bakimi.Domain.username.values.*;
+import com.co.sofka.Bakimi.Domain.username.values.Contents;
+import com.co.sofka.Bakimi.Domain.username.values.IdCommentary;
+import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
+import com.co.sofka.Bakimi.Domain.username.values.Tittle;
 
 public final class BlogBuilder {
-    protected IdCommentary idCommentary;
+    protected String publicationId;
     protected IdUsuario idUsuario;
-    protected IdPublication idPublication;
     protected Tittle tittle;
+    protected IdCommentary idCommentary;
     protected Contents contents;
 
     private BlogBuilder() {
     }
 
-    public static BlogBuilder Blog() {
+    public static BlogBuilder aBlog() {
         return new BlogBuilder();
     }
 
-    public BlogBuilder withIdCommentary(IdCommentary idCommentary) {
-        this.idCommentary = idCommentary;
+    public BlogBuilder withPublicationId(String publicationId) {
+        this.publicationId = publicationId;
         return this;
     }
 
@@ -26,13 +29,13 @@ public final class BlogBuilder {
         return this;
     }
 
-    public BlogBuilder withIdPublication(IdPublication idPublication) {
-        this.idPublication = idPublication;
+    public BlogBuilder withTittle(Tittle tittle) {
+        this.tittle = tittle;
         return this;
     }
 
-    public BlogBuilder withTittle(Tittle tittle) {
-        this.tittle = tittle;
+    public BlogBuilder withIdCommentary(IdCommentary idCommentary) {
+        this.idCommentary = idCommentary;
         return this;
     }
 
@@ -42,6 +45,8 @@ public final class BlogBuilder {
     }
 
     public Blog build() {
-        return new Blog(null, idCommentary, idUsuario, idPublication, tittle, contents);
+        Blog blog = new Blog(null, idUsuario, tittle, idCommentary, contents);
+        blog.setPublicationId(publicationId);
+        return blog;
     }
 }

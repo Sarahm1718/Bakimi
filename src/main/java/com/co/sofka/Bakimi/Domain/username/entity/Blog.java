@@ -2,43 +2,51 @@ package com.co.sofka.Bakimi.Domain.username.entity;
 
 import co.com.sofka.domain.generic.Entity;
 import com.co.sofka.Bakimi.Domain.username.values.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "Blog")
+
+@Document(collection = "Blog")
 public class Blog extends Entity<IdPublication>{
-    protected IdCommentary idCommentary;
+    @Id
+    protected String publicationId;
     protected IdUsuario idUsuario;
-    protected IdPublication idPublication;
     protected Tittle tittle;
+    protected IdCommentary idCommentary;
     protected Contents contents;
 
-
-    public Blog(IdPublication entityId, IdCommentary idCommentary, IdUsuario idUsuario, IdPublication idPublication, Tittle tittle, Contents contents) {
+    public Blog(IdPublication entityId, IdUsuario idUsuario, Tittle tittle, IdCommentary idCommentary, Contents contents) {
         super(entityId);
-        this.idCommentary = idCommentary;
+        this.publicationId=entityId.value();
         this.idUsuario = idUsuario;
-        this.idPublication = idPublication;
         this.tittle = tittle;
+        this.idCommentary = idCommentary;
         this.contents = contents;
     }
 
-    public IdCommentary getIdCommentary() {
-        return idCommentary;
+    public String getPublicationId() {
+        return publicationId;
+    }
+
+    public void setPublicationId(String publicationId) {
+        this.publicationId = publicationId;
     }
 
     public IdUsuario getIdUsuario() {
         return idUsuario;
     }
 
-    public IdPublication getIdPublication() {
-        return idPublication;
-    }
-
     public Tittle getTittle() {
         return tittle;
+    }
+
+    public IdCommentary getIdCommentary() {
+        return idCommentary;
     }
 
     public Contents getContents() {
         return contents;
     }
 }
+
+

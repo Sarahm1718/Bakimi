@@ -1,10 +1,12 @@
 package com.co.sofka.Bakimi.Domain.username.entity;
 
-import com.co.sofka.Bakimi.Domain.username.values.*;
+import com.co.sofka.Bakimi.Domain.username.values.DescriptionRoutines;
+import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
+import com.co.sofka.Bakimi.Domain.username.values.RoutinesName;
+import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
 
 public final class RoutinesBuilder {
     protected RoutinesName routinesName;
-    protected Products products;
     protected DescriptionRoutines descriptionRoutines;
     protected IdUsuario idUsuario;
     protected TypeSkin typeSkin;
@@ -18,11 +20,6 @@ public final class RoutinesBuilder {
 
     public RoutinesBuilder withRoutinesName(RoutinesName routinesName) {
         this.routinesName = routinesName;
-        return this;
-    }
-
-    public RoutinesBuilder withProducts(Products products) {
-        this.products = products;
         return this;
     }
 
@@ -42,6 +39,6 @@ public final class RoutinesBuilder {
     }
 
     public Routines build() {
-        return new Routines(null, routinesName, products, descriptionRoutines, idUsuario, typeSkin);
+        return new Routines(null, routinesName, descriptionRoutines, idUsuario, typeSkin);
     }
 }

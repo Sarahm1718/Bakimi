@@ -4,7 +4,7 @@ import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Bakimi.Domain.username.entity.Routines;
 import com.co.sofka.Bakimi.Domain.username.commands.CreateRoutines;
-import com.co.sofka.Bakimi.Domain.username.repository.IRoutineRepository;
+/*import com.co.sofka.Bakimi.Domain.username.repository.IRoutineDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
 public class CreateRoutinesUseCase extends UseCase<RequestCommand<CreateRoutines>, CreateRoutinesUseCase.Response> {
 
     @Autowired
-    private IRoutineRepository iRoutineRepository;
+    private IRoutineDataRepository iRoutineDataRepository;
 
     @Override
     public void executeUseCase(RequestCommand<CreateRoutines> createRoutinesRequestCommand) {
             var command = createRoutinesRequestCommand.getCommand();
             var routines = new Routines(command.RoutinesId(), command.RoutinesName(), command.getDescriptionRoutines(), command.IdUsuario(), command.TypeSkin());
-            iRoutineRepository.save(routines);
+            iRoutineDataRepository.save(routines);
             emit().onResponse(new Response(routines));
         }
 
@@ -40,4 +40,4 @@ public class CreateRoutinesUseCase extends UseCase<RequestCommand<CreateRoutines
             this.response = response;
         }
     }
-    }
+    }*/

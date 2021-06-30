@@ -15,9 +15,7 @@ public class Username extends AggregateRoot<IdUsuario> {
     protected Email email;
     protected TypeSkin typeSkin;
     protected IdUsuario idUsuario;
-
-
-
+    
     public Username(IdUsuario idUsuario, Email email, TypeSkin typeSkin, Name name) {
         super(idUsuario);
         this.name = name;

@@ -1,10 +1,10 @@
-package com.co.sofka.Bakimi.Domain.username.useCase;
+/*package com.co.sofka.Bakimi.Domain.username.useCase;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Bakimi.Domain.username.Username;
 import com.co.sofka.Bakimi.Domain.username.commands.CreateUsername;
-import com.co.sofka.Bakimi.Domain.username.repository.IUsernameRepository;
+import com.co.sofka.Bakimi.Domain.username.repository.IUsernameDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class CreateUsernameUserCase  extends UseCase<RequestCommand<CreateUsername>, CreateUsernameUserCase.Response> {
 
     @Autowired
-    private IUsernameRepository iUsernameRepository;
+    private IUsernameDataRepository iUsernameDataRepository;
 
     @Override
     public void executeUseCase(RequestCommand<CreateUsername> createUsernameRequestCommand) {
@@ -37,4 +37,4 @@ public class CreateUsernameUserCase  extends UseCase<RequestCommand<CreateUserna
         }
     }
 }
-
+*/
