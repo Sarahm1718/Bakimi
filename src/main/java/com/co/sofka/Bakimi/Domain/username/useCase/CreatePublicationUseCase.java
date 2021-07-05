@@ -13,14 +13,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class CreatePublicationUseCase extends UseCase<RequestCommand<CreatePublication>, CreatePublicationUseCase.Response> {
     @Autowired
-    private IBlogDataRepository iBlogDataRepository;
+    private IBlogDataRepository data;
 
 
     @Override
     public void executeUseCase(RequestCommand<CreatePublication> createPublicationRequestCommand) {
         var command = createPublicationRequestCommand.getCommand();
         var blog = new Blog(command.getIdPublication(), command.getIdUsuario(), command.getTittle(), command.getIdCommentary(), command.getContents());
-        iBlogDataRepository.save(tranform(blog));
+        data.save(tranform(blog));
         emit().onResponse(new Response(blog));
     }
     public BlogData tranform(Blog blog){

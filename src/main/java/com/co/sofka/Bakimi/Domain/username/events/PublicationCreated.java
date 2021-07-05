@@ -4,38 +4,39 @@ import co.com.sofka.domain.generic.DomainEvent;
 import com.co.sofka.Bakimi.Domain.username.values.*;
 
 public class PublicationCreated extends DomainEvent {
-    private final IdCommentary idCommentary;
+    private final IdPublication idPublication;
     private final IdUsuario idUsuario;
     private final Tittle tittle;
+    private final IdCommentary idCommentary;
     private final Contents contents;
-    private final IdPublication idPublication;
 
-    public PublicationCreated(IdCommentary idCommentary, IdUsuario idUsuario, Tittle tittle, Contents contents, IdPublication idPublication) {
-        super("Bakimi.publication.created");
-        this.idCommentary = idCommentary;
+
+    public PublicationCreated(IdPublication idPublication, IdUsuario idUsuario, Tittle tittle, IdCommentary idCommentary, Contents contents) {
+        super("publication.created");
+        this.idPublication = idPublication;
         this.idUsuario = idUsuario;
         this.tittle = tittle;
+        this.idCommentary = idCommentary;
         this.contents = contents;
-        this.idPublication = idPublication;
     }
 
-    public IdCommentary IdCommentary() {
-        return idCommentary;
-    }
-
-    public IdPublication IdPublication() {
+    public IdPublication getIdPublication() {
         return idPublication;
     }
 
-    public IdUsuario IdUsuario() {
+    public IdUsuario getIdUsuario() {
         return idUsuario;
     }
 
-    public Tittle Tittle() {
+    public Tittle getTittle() {
         return tittle;
     }
 
-    public Contents Contents() {
+    public IdCommentary getIdCommentary() {
+        return idCommentary;
+    }
+
+    public Contents getContents() {
         return contents;
     }
 }

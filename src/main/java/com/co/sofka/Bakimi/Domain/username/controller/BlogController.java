@@ -6,23 +6,24 @@ import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Bakimi.Domain.username.commands.CreatePublication;
 import com.co.sofka.Bakimi.Domain.username.repository.BlogData;
 import com.co.sofka.Bakimi.Domain.username.useCase.TransformationBlogUseCase;
+import com.co.sofka.Bakimi.Domain.username.values.IdCommentary;
 import com.co.sofka.Bakimi.Domain.username.values.IdPublication;
 import com.co.sofka.Bakimi.Domain.username.useCase.CreatePublicationUseCase;
-import com.co.sofka.Bakimi.Domain.username.values.*;
+import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
+import com.co.sofka.Bakimi.Domain.username.values.Tittle;
+import com.co.sofka.Bakimi.Domain.username.values.Contents;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.text.html.parser.Entity;
 
 @RestController
 @CrossOrigin(origins = "*")
 public class BlogController {
     @Autowired
-    private CreatePublicationUseCase useCase;
+    private CreatePublicationUseCase createPublicationUseCase;
     @Autowired
     private TransformationBlogUseCase transformationBlogUseCase;
 
-    @PostMapping(value="api/{idPublication}/{idUsuario}/{tittle}/{idCommentary}/{contents}")
+    @PostMapping(value="api/save/{idPublication}/{idUsuario}/{tittle}/{idCommentary}/{contents}")
     public String save(@PathVariable("idPublication")String idPublication,
                        @PathVariable("idUsuario")String idUsuario,
                        @PathVariable("tittle")String tittle,
@@ -33,10 +34,10 @@ public class BlogController {
         CreatePublicationUseCase.Response publicationCreated = executedUseCase(command);
         String string="{"
                 + "\"idPublication\":" + "\""+publicationCreated.getResponse().identity()+"\""+ ","
-                + "\"idUsuario\":" + "\""+publicationCreated.getResponse().getIdUsuario()+"\""+ ","
-                + "\"tittle\":" + "\""+publicationCreated.getResponse().getTittle()+"\""+ ","
-                + "\"idCommentary\":" + "\""+publicationCreated.getResponse().getIdCommentary()+"\""+ ","
-                + "\"contents\":" + "\""+publicationCreated.getResponse().getContents()
+                + "\"idUsuario\":" + "\""+publicationCreated.getResponse().getIdUsuario().value()+"\""+ ","
+                + "\"tittle\":" + "\""+publicationCreated.getResponse().getTittle().value()+"\""+ ","
+                + "\"idCommentary\":" + "\""+publicationCreated.getResponse().getIdCommentary().value()+"\""+ ","
+                + "\"contents\":" + "\""+publicationCreated.getResponse().getContents().value()
                 +"}";
         return string;
 
@@ -45,7 +46,7 @@ public class BlogController {
 
     private CreatePublicationUseCase.Response executedUseCase(CreatePublication command) {
         var events = UseCaseHandler.getInstance()
-                .syncExecutor(useCase, new RequestCommand<>(command))
+                .syncExecutor(createPublicationUseCase, new RequestCommand<>(command))
                 .orElseThrow();
         var PublicationCreated = events;
         return PublicationCreated;

@@ -6,42 +6,37 @@ import com.co.sofka.Bakimi.Domain.username.values.*;
 public class RoutinesCreated extends DomainEvent {
     private  final RoutinesId routinesId;
     private final RoutinesName routinesName;
-    private final Products products;
-    private final IdUsuario idUsuario;
     private final DescriptionRoutines descriptionRoutines;
+    private final IdUsuario idUsuario;
     private final TypeSkin typeSkin;
 
-    public RoutinesCreated(RoutinesId routinesId, RoutinesName routinesName, Products products, IdUsuario idUsuario, DescriptionRoutines descriptionRoutines, TypeSkin typeSkin) {
-        super("Bakimi.routines.created");
+
+    public RoutinesCreated(RoutinesId routinesId, RoutinesName routinesName, DescriptionRoutines descriptionRoutines, IdUsuario idUsuario, TypeSkin typeSkin) {
+        super("routines.created");
         this.routinesId = routinesId;
         this.routinesName = routinesName;
-        this.products = products;
-        this.idUsuario = idUsuario;
         this.descriptionRoutines = descriptionRoutines;
+        this.idUsuario = idUsuario;
         this.typeSkin = typeSkin;
     }
 
-    public RoutinesId RoutinesId() {
+    public RoutinesId getRoutinesId() {
         return routinesId;
     }
 
-    public RoutinesName RoutinesName() {
+    public RoutinesName getRoutinesName() {
         return routinesName;
     }
 
-    public Products Products() {
-        return products;
-    }
-
-    public IdUsuario IdUsuario() {
-        return idUsuario;
-    }
-
-    public DescriptionRoutines DescriptionRoutines() {
+    public DescriptionRoutines getDescriptionRoutines() {
         return descriptionRoutines;
     }
 
-    public TypeSkin TypeSkin() {
+    public IdUsuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public TypeSkin getTypeSkin() {
         return typeSkin;
     }
 }

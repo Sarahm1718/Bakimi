@@ -1,4 +1,4 @@
-/*package com.co.sofka.Bakimi.Domain.username.useCase;
+package com.co.sofka.Bakimi.Domain.username.useCase;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
@@ -37,4 +37,4 @@ public class CreateUsernameUserCase  extends UseCase<RequestCommand<CreateUserna
         }
     }
 }
-*/
+

@@ -12,7 +12,7 @@ public class BlogData {
     protected String contents;
 
     public BlogData(String publicationId, String idUsuario, String tittle, String idCommentary, String contents) {
-        this.publicationId = publicationId;
+        publicationId = publicationId;
         this.idUsuario = idUsuario;
         this.tittle = tittle;
         this.idCommentary = idCommentary;
@@ -28,7 +28,7 @@ public class BlogData {
     }
 
     public void setPublicationId(String publicationId) {
-        this.publicationId = publicationId;
+        publicationId = publicationId;
     }
 
     public String getIdUsuario() {

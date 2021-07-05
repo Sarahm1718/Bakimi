@@ -6,6 +6,7 @@ import com.co.sofka.Bakimi.Domain.username.values.RoutinesName;
 import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
 
 public final class RoutinesBuilder {
+    protected String idRoutines;
     protected RoutinesName routinesName;
     protected DescriptionRoutines descriptionRoutines;
     protected IdUsuario idUsuario;
@@ -16,6 +17,11 @@ public final class RoutinesBuilder {
 
     public static RoutinesBuilder aRoutines() {
         return new RoutinesBuilder();
+    }
+
+    public RoutinesBuilder withIdRoutines(String idRoutines) {
+        this.idRoutines = idRoutines;
+        return this;
     }
 
     public RoutinesBuilder withRoutinesName(RoutinesName routinesName) {
@@ -39,6 +45,8 @@ public final class RoutinesBuilder {
     }
 
     public Routines build() {
-        return new Routines(null, routinesName, descriptionRoutines, idUsuario, typeSkin);
+        Routines routines = new Routines(null, routinesName, descriptionRoutines, idUsuario, typeSkin);
+        routines.setIdRoutines(idRoutines);
+        return routines;
     }
 }

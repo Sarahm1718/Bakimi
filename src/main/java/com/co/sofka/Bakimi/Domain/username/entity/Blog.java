@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Blog extends Entity<IdPublication>{
     @Id
     protected String publicationId;
+
     protected IdUsuario idUsuario;
     protected Tittle tittle;
     protected IdCommentary idCommentary;
@@ -29,7 +30,7 @@ public class Blog extends Entity<IdPublication>{
     }
 
     public void setPublicationId(String publicationId) {
-        this.publicationId = publicationId;
+        publicationId = publicationId;
     }
 
     public IdUsuario getIdUsuario() {
