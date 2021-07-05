@@ -1,29 +1,36 @@
 package com.co.sofka.Bakimi.Domain.username;
-
-import ch.qos.logback.core.joran.spi.DefaultClass;
 import co.com.sofka.domain.generic.AggregateRoot;
 import com.co.sofka.Bakimi.Domain.username.values.Email;
 import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
 import com.co.sofka.Bakimi.Domain.username.values.Name;
 import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document(collection = "Usuario")
 public class Username extends AggregateRoot<IdUsuario> {
+    @Id
+    protected String usuarioId;
     protected Name name;
     protected Email email;
     protected TypeSkin typeSkin;
-    protected IdUsuario idUsuario;
 
-    public Username(IdUsuario idUsuario, Email email, TypeSkin typeSkin, Name name) {
-        super(idUsuario);
+    public Username(IdUsuario entityId, Name name, Email email, TypeSkin typeSkin) {
+        super(entityId);
+        this.usuarioId = entityId.value();
         this.name = name;
         this.email = email;
         this.typeSkin = typeSkin;
-        this.idUsuario=idUsuario;
     }
 
+    public String getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(String usuarioId) {
+        this.usuarioId = usuarioId;
+    }
 
     public Name getName() {
         return name;
@@ -35,9 +42,5 @@ public class Username extends AggregateRoot<IdUsuario> {
 
     public TypeSkin getTypeSkin() {
         return typeSkin;
-    }
-
-    public IdUsuario getIdUsuario() {
-        return idUsuario;
     }
 }

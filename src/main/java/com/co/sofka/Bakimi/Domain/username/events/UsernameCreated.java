@@ -7,32 +7,34 @@ import com.co.sofka.Bakimi.Domain.username.values.Name;
 import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
 
 public class UsernameCreated extends DomainEvent {
+
+    private final IdUsuario idUsuario;
     private final Name name;
     private final Email email;
     private final TypeSkin typeSkin;
-    private final IdUsuario idUsuario;
 
-    public UsernameCreated(Name name, Email email, TypeSkin typeSkin, IdUsuario idUsuario) {
-        super("Bakimi.username.created");
+
+    public UsernameCreated(IdUsuario idUsuario, Name name, Email email, TypeSkin typeSkin) {
+        super("username.created");
+        this.idUsuario = idUsuario;
         this.name = name;
         this.email = email;
         this.typeSkin = typeSkin;
-        this.idUsuario = idUsuario;
     }
 
-    public Name Name() {
+    public IdUsuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public Name name() {
         return name;
     }
 
-    public Email Email() {
+    public Email email() {
         return email;
     }
 
-    public TypeSkin TypeSkin() {
+    public TypeSkin typeSkin() {
         return typeSkin;
-    }
-
-    public IdUsuario IdUsuario() {
-        return idUsuario;
     }
 }

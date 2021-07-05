@@ -6,14 +6,13 @@ import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
 import com.co.sofka.Bakimi.Domain.username.values.Name;
 import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
 
-public class CreateUsername implements Command {
+public class UpdateUsername implements Command {
     private final IdUsuario idUsuario;
     private final Name name;
     private final Email email;
     private final TypeSkin typeSkin;
 
-
-    public CreateUsername(IdUsuario idUsuario, Name name, Email email, TypeSkin typeSkin) {
+    public UpdateUsername(IdUsuario idUsuario, Name name, Email email, TypeSkin typeSkin) {
         this.idUsuario = idUsuario;
         this.name = name;
         this.email = email;
