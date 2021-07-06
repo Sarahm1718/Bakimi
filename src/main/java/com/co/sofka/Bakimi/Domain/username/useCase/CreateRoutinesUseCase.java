@@ -19,7 +19,7 @@ public class CreateRoutinesUseCase extends UseCase<RequestCommand<CreateRoutines
     @Override
     public void executeUseCase(RequestCommand<CreateRoutines> createRoutinesRequestCommand) {
             var command = createRoutinesRequestCommand.getCommand();
-            var routines = new Routines(command.getRoutinesId(), command.getRoutinesName(), command.getDescriptionRoutines(), command.getIdUsuario(), command.getTypeSkin());
+            var routines = new Routines(command.routinesId(), command.routinesName(), command.descriptionRoutines(), command.idUsuario(), command.typeSkin());
             data.save(transform(routines));
             emit().onResponse(new Response(routines));
         }

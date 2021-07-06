@@ -5,7 +5,7 @@ import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
 import com.co.sofka.Bakimi.Domain.username.values.RoutinesName;
 import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
 
-public final class RoutinesBuilder {
+public final class RoutinesBuilder{
     protected String idRoutines;
     protected RoutinesName routinesName;
     protected DescriptionRoutines descriptionRoutines;

@@ -23,7 +23,6 @@ public  class Routines extends Entity<RoutinesId> {
         this.descriptionRoutines = descriptionRoutines;
         this.idUsuario = idUsuario;
         this.typeSkin = typeSkin;
-
     }
 
     public String getIdRoutines() {

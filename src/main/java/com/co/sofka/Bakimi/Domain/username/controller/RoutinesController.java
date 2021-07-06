@@ -14,23 +14,23 @@ import org.springframework.web.bind.annotation.*;
 public class RoutinesController{
 
     @Autowired
-    private CreateRoutinesUseCase useCase;
+    private CreateRoutinesUseCase createRoutinesUseCase;
 
     @Autowired
     private TransformationRoutinesUseCase transformationRoutinesUseCase;
 
-    @PostMapping(value = "api/save/{routinesId}/{routinesName}/{descriptionRoutines}/{idUsuario}/{typeSkin}")
-    public String save(@PathVariable("routinesId") String routinesId,
+    @PostMapping(value = "api/guardar/{idr}/{routinesName}/{descriptionRoutines}/{idUsuario}/{typeSkin}")
+    public String guardar(@PathVariable("idr") String idr,
                        @PathVariable("routinesName") String routinesName,
                        @PathVariable("descriptionRoutines") String descriptionRoutines,
                        @PathVariable("idUsuario") String idUsuario,
                        @PathVariable("typeSkin") String TypeSkin
 
     ) {
-        var command = new CreateRoutines(RoutinesId.of(routinesId), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines),  IdUsuario.of(idUsuario), new TypeSkin(TypeSkin));
+        var command = new CreateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines),  IdUsuario.of(idUsuario), new TypeSkin(TypeSkin));
         CreateRoutinesUseCase.Response routinesCreated = executedUseCase(command);
         String string="{"
-                + "\"routinesId\":" + "\""+routinesCreated.getResponse().identity().value()+"\""+ ","
+                + "\"idr\":" + "\""+routinesCreated.getResponse().identity().value()+"\""+ ","
                 + "\"nameRutines\":" + "\""+routinesCreated.getResponse().getRoutinesName().value()+"\""+ ","
                 + "\"descriptionRoutines\":" + "\""+routinesCreated.getResponse().getDescriptionRoutines().value()+"\""+ ","
                 + "\"idUsuario\":" + "\""+routinesCreated.getResponse().getIdUsuario().value()+"\""+ ","
@@ -41,7 +41,7 @@ public class RoutinesController{
 
     private CreateRoutinesUseCase.Response executedUseCase(CreateRoutines command) {
         var events = UseCaseHandler.getInstance()
-                .syncExecutor(useCase, new RequestCommand<>(command))
+                .syncExecutor(createRoutinesUseCase, new RequestCommand<>(command))
                 .orElseThrow();
         var RoutinesCreated = events;
         return RoutinesCreated;

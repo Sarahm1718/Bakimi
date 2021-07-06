@@ -22,16 +22,16 @@ public class BlogController {
     @Autowired
     private TransformationBlogUseCase transformationBlogUseCase;
 
-    @PostMapping(value="api/save/{id}/{tittle}/{idUsuario}/{contents}")
-    public String save(@PathVariable("id")String id,
+    @PostMapping(value="api/guarder/{idb}/{tittle}/{idUsuario}/{contents}")
+    public String guarder(@PathVariable("idb")String idb,
                        @PathVariable("tittle")String tittle,
                        @PathVariable("idUsuario")String idUsuario,
                        @PathVariable("contents") String contents
                        ){
-        var command = new CreatePublication(IdPublication.of(id), new Tittle(tittle), new IdUsuario(idUsuario), new Contents(contents));
+        var command = new CreatePublication(IdPublication.of(idb), new Tittle(tittle), new IdUsuario(idUsuario), new Contents(contents));
         CreatePublicationUseCase.Response publicationCreated = executeUseCase(command);
         String string = "{"
-                + "\"id\":" + "\""+publicationCreated.getResponse().identity()+"\""+ ","
+                + "\"idb\":" + "\""+publicationCreated.getResponse().identity()+"\""+ ","
                 + "\"tittle\":" + "\""+publicationCreated.getResponse().getTittle().value()+"\""+ ","
                 + "\"idUsuario\":" + "\""+publicationCreated.getResponse().getIdUsuario().value()+"\""+ ","
                 + "\"contents\":" + "\""+publicationCreated.getResponse().getContents().value()

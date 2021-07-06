@@ -5,13 +5,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Blog")
 public class BlogData {
     @Id
-    protected String id;
+    protected String idb;
     protected String tittle;
     protected String idUsuario;
     protected String contents;
 
-    public BlogData(String id, String tittle, String idUsuario, String contents) {
-        this.id = id;
+    public BlogData(String idb, String tittle, String idUsuario, String contents) {
+        this.idb = idb;
         this.tittle = tittle;
         this.idUsuario = idUsuario;
         this.contents = contents;
@@ -20,12 +20,12 @@ public class BlogData {
     public BlogData(){
     }
 
-    public String getId() {
-        return id;
+    public String getIdb() {
+        return idb;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.idb = idb;
     }
 
     public String getTittle() {

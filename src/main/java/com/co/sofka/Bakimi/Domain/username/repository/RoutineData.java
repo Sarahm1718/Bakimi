@@ -5,30 +5,29 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Rutinas")
 public class RoutineData {
     @Id
-    protected String idRoutines;
+    protected String idr;
     protected String routinesName;
     protected String descriptionRoutines;
     protected String idUsuario;
     protected String typeSkin;
 
-    public RoutineData(String idRoutines, String routinesName, String descriptionRoutines, String idUsuario, String typeSkin) {
-        this.idRoutines = idRoutines;
+    public RoutineData(String idr, String routinesName, String descriptionRoutines, String idUsuario, String typeSkin) {
+        this.idr = idr;
         this.routinesName = routinesName;
         this.descriptionRoutines = descriptionRoutines;
         this.idUsuario = idUsuario;
         this.typeSkin = typeSkin;
     }
-
     public RoutineData(){
 
     }
 
-    public String getIdRoutines() {
-        return idRoutines;
+    public String getIdr() {
+        return idr;
     }
 
-    public void setIdRoutines(String idRoutines) {
-        this.idRoutines = idRoutines;
+    public void setIdr(String idr) {
+        this.idr = idr;
     }
 
     public String getRoutinesName() {

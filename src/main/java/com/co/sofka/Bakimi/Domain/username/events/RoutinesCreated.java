@@ -24,19 +24,19 @@ public class RoutinesCreated extends DomainEvent {
         return routinesId;
     }
 
-    public RoutinesName getRoutinesName() {
+    public RoutinesName routinesName() {
         return routinesName;
     }
 
-    public DescriptionRoutines getDescriptionRoutines() {
+    public DescriptionRoutines descriptionRoutines() {
         return descriptionRoutines;
     }
 
-    public IdUsuario getIdUsuario() {
+    public IdUsuario idUsuario() {
         return idUsuario;
     }
 
-    public TypeSkin getTypeSkin() {
+    public TypeSkin typeSkin() {
         return typeSkin;
     }
 }
