@@ -5,36 +5,31 @@ import com.co.sofka.Bakimi.Domain.username.values.*;
 
 public class CreatePublication implements Command {
     private final IdPublication idPublication;
-    private final IdUsuario idUsuario;
     private final Tittle tittle;
-    private final IdCommentary idCommentary;
+    private final IdUsuario idUsuario;
     private final Contents contents;
 
-    public CreatePublication(IdPublication idPublication, IdUsuario idUsuario, Tittle tittle, IdCommentary idCommentary, Contents contents) {
+
+    public CreatePublication(IdPublication idPublication, Tittle tittle, IdUsuario idUsuario, Contents contents) {
         this.idPublication = idPublication;
-        this.idUsuario = idUsuario;
         this.tittle = tittle;
-        this.idCommentary = idCommentary;
+        this.idUsuario = idUsuario;
         this.contents = contents;
     }
 
-    public IdPublication getIdPublication() {
+    public IdPublication idPublication() {
         return idPublication;
     }
 
-    public IdUsuario getIdUsuario() {
-        return idUsuario;
-    }
-
-    public Tittle getTittle() {
+    public Tittle tittle() {
         return tittle;
     }
 
-    public IdCommentary getIdCommentary() {
-        return idCommentary;
+    public IdUsuario idUsuario() {
+        return idUsuario;
     }
 
-    public Contents getContents() {
+    public Contents contents() {
         return contents;
     }
 }

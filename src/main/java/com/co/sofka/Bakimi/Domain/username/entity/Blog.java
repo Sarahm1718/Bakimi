@@ -7,21 +7,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Document(collection = "Blog")
-public class Blog extends Entity<IdPublication>{
+public class Blog extends Entity<IdPublication> {
     @Id
     protected String publicationId;
-
-    protected IdUsuario idUsuario;
     protected Tittle tittle;
-    protected IdCommentary idCommentary;
+    protected IdUsuario idUsuario;
     protected Contents contents;
 
-    public Blog(IdPublication entityId, IdUsuario idUsuario, Tittle tittle, IdCommentary idCommentary, Contents contents) {
+    public Blog(IdPublication entityId, Tittle tittle, IdUsuario idUsuario, Contents contents) {
         super(entityId);
-        this.publicationId=entityId.value();
-        this.idUsuario = idUsuario;
+        this.publicationId = entityId.value();
         this.tittle = tittle;
-        this.idCommentary = idCommentary;
+        this.idUsuario = idUsuario;
         this.contents = contents;
     }
 
@@ -30,24 +27,18 @@ public class Blog extends Entity<IdPublication>{
     }
 
     public void setPublicationId(String publicationId) {
-        publicationId = publicationId;
-    }
-
-    public IdUsuario getIdUsuario() {
-        return idUsuario;
+        this.publicationId = publicationId;
     }
 
     public Tittle getTittle() {
         return tittle;
     }
 
-    public IdCommentary getIdCommentary() {
-        return idCommentary;
+    public IdUsuario getIdUsuario() {
+        return idUsuario;
     }
 
     public Contents getContents() {
         return contents;
     }
 }
-
-

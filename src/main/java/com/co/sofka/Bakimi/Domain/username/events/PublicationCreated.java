@@ -5,18 +5,16 @@ import com.co.sofka.Bakimi.Domain.username.values.*;
 
 public class PublicationCreated extends DomainEvent {
     private final IdPublication idPublication;
-    private final IdUsuario idUsuario;
     private final Tittle tittle;
-    private final IdCommentary idCommentary;
+    private final IdUsuario idUsuario;
     private final Contents contents;
 
 
-    public PublicationCreated(IdPublication idPublication, IdUsuario idUsuario, Tittle tittle, IdCommentary idCommentary, Contents contents) {
-        super("publication.created");
+    public PublicationCreated(IdPublication idPublication, Tittle tittle, IdUsuario idUsuario, Contents contents) {
+        super("blog.created");
         this.idPublication = idPublication;
-        this.idUsuario = idUsuario;
         this.tittle = tittle;
-        this.idCommentary = idCommentary;
+        this.idUsuario = idUsuario;
         this.contents = contents;
     }
 
@@ -24,19 +22,15 @@ public class PublicationCreated extends DomainEvent {
         return idPublication;
     }
 
-    public IdUsuario getIdUsuario() {
-        return idUsuario;
-    }
-
-    public Tittle getTittle() {
+    public Tittle tittle() {
         return tittle;
     }
 
-    public IdCommentary getIdCommentary() {
-        return idCommentary;
+    public IdUsuario idUsuario() {
+        return idUsuario;
     }
 
-    public Contents getContents() {
+    public Contents  contents() {
         return contents;
     }
 }

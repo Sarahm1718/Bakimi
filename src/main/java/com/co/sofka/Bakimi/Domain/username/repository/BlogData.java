@@ -5,38 +5,27 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Blog")
 public class BlogData {
     @Id
-    protected String publicationId;
-    protected String idUsuario;
+    protected String id;
     protected String tittle;
-    protected String idCommentary;
+    protected String idUsuario;
     protected String contents;
 
-    public BlogData(String publicationId, String idUsuario, String tittle, String idCommentary, String contents) {
-        publicationId = publicationId;
-        this.idUsuario = idUsuario;
+    public BlogData(String id, String tittle, String idUsuario, String contents) {
+        this.id = id;
         this.tittle = tittle;
-        this.idCommentary = idCommentary;
+        this.idUsuario = idUsuario;
         this.contents = contents;
     }
 
     public BlogData(){
-
     }
 
-    public String getPublicationId() {
-        return publicationId;
+    public String getId() {
+        return id;
     }
 
-    public void setPublicationId(String publicationId) {
-        publicationId = publicationId;
-    }
-
-    public String getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTittle() {
@@ -47,12 +36,12 @@ public class BlogData {
         this.tittle = tittle;
     }
 
-    public String getIdCommentary() {
-        return idCommentary;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdCommentary(String idCommentary) {
-        this.idCommentary = idCommentary;
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getContents() {

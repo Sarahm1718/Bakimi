@@ -9,12 +9,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class TransformationBlogUseCase {
     @Autowired
-    public IBlogDataRepository data;
-    public BlogData tranform(Blog blog){
-        BlogData blogData = new BlogData(blog.getPublicationId(), blog.getIdUsuario().value(), blog.getTittle().value(), blog.getIdCommentary().value(), blog.getContents().value());
+    private IBlogDataRepository data;
+
+
+    public BlogData transform(Blog blog){
+        BlogData blogData = new BlogData(blog.getPublicationId(), blog.getTittle().value(), blog.getIdUsuario().value(), blog.getContents().value());
         return blogData;
     }
     public Iterable<BlogData> search(){
         return data.findAll();
     }
+
 }

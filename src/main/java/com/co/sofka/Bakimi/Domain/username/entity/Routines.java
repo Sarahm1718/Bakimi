@@ -49,5 +49,4 @@ public  class Routines extends Entity<RoutinesId> {
     public TypeSkin getTypeSkin() {
         return typeSkin;
     }
-
 }
