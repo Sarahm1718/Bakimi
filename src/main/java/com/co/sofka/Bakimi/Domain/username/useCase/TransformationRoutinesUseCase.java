@@ -17,4 +17,15 @@ public class TransformationRoutinesUseCase {
    public Iterable<RoutineData> searchRoutine(){
         return data.findAll();
    }
-}
+    public RoutineData searchRoutinesId(String idr) {
+        return data.findById(idr).orElseThrow(RuntimeException::new);
+    }
+    public String delete(String idr) {
+
+        try {
+            data.deleteById(idr);
+            return "Se realizo el borrado con exito";
+        }catch(Exception e){
+            return "No se pudo realizar el borrado con exito";
+        }
+}}
