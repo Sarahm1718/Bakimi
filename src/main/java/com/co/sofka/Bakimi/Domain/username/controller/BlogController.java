@@ -37,10 +37,7 @@ public class BlogController {
                 + "\"contents\":" + "\""+publicationCreated.getResponse().getContents().value()
                 +"}";
         return string;
-
-
     }
-
     private CreatePublicationUseCase.Response executeUseCase(CreatePublication command) {
         var events = UseCaseHandler.getInstance()
                 .syncExecutor(createPublicationUseCase, new RequestCommand<>(command))
@@ -48,8 +45,6 @@ public class BlogController {
         var PublicationCreated = events;
         return PublicationCreated;
     }
-
-
     @GetMapping(value = "api/blog")
     public Iterable<BlogData> search(){ return (transformationBlogUseCase.search());
     }}
