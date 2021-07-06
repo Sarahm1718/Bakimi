@@ -4,8 +4,11 @@ package com.co.sofka.Bakimi.Domain.username.controller;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Bakimi.Domain.username.commands.CreatePublication;
+import com.co.sofka.Bakimi.Domain.username.commands.UpdatePublication;
 import com.co.sofka.Bakimi.Domain.username.repository.BlogData;
+import com.co.sofka.Bakimi.Domain.username.repository.UsernameData;
 import com.co.sofka.Bakimi.Domain.username.useCase.TransformationBlogUseCase;
+import com.co.sofka.Bakimi.Domain.username.useCase.UpdateBlogUseCase;
 import com.co.sofka.Bakimi.Domain.username.values.IdPublication;
 import com.co.sofka.Bakimi.Domain.username.useCase.CreatePublicationUseCase;
 import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
@@ -21,6 +24,9 @@ public class BlogController {
     private CreatePublicationUseCase createPublicationUseCase;
     @Autowired
     private TransformationBlogUseCase transformationBlogUseCase;
+
+    @Autowired
+    private UpdateBlogUseCase updateBlogUseCase;
 
     @PostMapping(value="api/guarder/{idb}/{tittle}/{idUsuario}/{contents}")
     public String guarder(@PathVariable("idb")String idb,
@@ -45,9 +51,46 @@ public class BlogController {
         var PublicationCreated = events;
         return PublicationCreated;
     }
+
+    @PutMapping(value="api/updateblog/{idb}/{tittle}/{idUsuario}/{contents}")
+    public String updateblog(@PathVariable("idb")String idb,
+                          @PathVariable("tittle")String tittle,
+                          @PathVariable("idUsuario")String idUsuario,
+                          @PathVariable("contents") String contents
+    ){
+        var command = new UpdatePublication(IdPublication.of(idb), new Tittle(tittle), new IdUsuario(idUsuario), new Contents(contents));
+        UpdateBlogUseCase.Response publicationUpdated = executeUseCase(command);
+        String string = "{"
+                + "\"idb\":" + "\""+publicationUpdated.getResponse().identity()+"\""+ ","
+                + "\"tittle\":" + "\""+publicationUpdated.getResponse().getTittle().value()+"\""+ ","
+                + "\"idUsuario\":" + "\""+publicationUpdated.getResponse().getIdUsuario().value()+"\""+ ","
+                + "\"contents\":" + "\""+publicationUpdated.getResponse().getContents().value()
+                +"}";
+        return string;
+    }
+    private UpdateBlogUseCase.Response executeUseCase(UpdatePublication command) {
+        var events = UseCaseHandler.getInstance()
+                .syncExecutor(updateBlogUseCase, new RequestCommand<>(command))
+                .orElseThrow();
+        var PublicationUpdated = events;
+        return (UpdateBlogUseCase.Response) PublicationUpdated;
+    }
     @GetMapping(value = "api/blog")
     public Iterable<BlogData> search(){ return (transformationBlogUseCase.search());
-    }}
+    }
+
+    @GetMapping(value = "api/searchId/{idb}")
+    public BlogData searchId(@PathVariable("idb") String idb) {
+        return (transformationBlogUseCase.searchId(idb));
+    }
+    @DeleteMapping(value = "api/deletepublication/{idb}")
+    public String delete(@PathVariable("idb") String idb){
+        return (transformationBlogUseCase.delete(idb));
+    }
+
+
+
+}
 
 
 

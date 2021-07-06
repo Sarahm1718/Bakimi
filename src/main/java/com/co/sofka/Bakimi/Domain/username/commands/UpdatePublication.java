@@ -1,27 +1,25 @@
-package com.co.sofka.Bakimi.Domain.username.events;
+package com.co.sofka.Bakimi.Domain.username.commands;
 
-import co.com.sofka.domain.generic.DomainEvent;
+import co.com.sofka.domain.generic.Command;
 import com.co.sofka.Bakimi.Domain.username.values.Contents;
 import com.co.sofka.Bakimi.Domain.username.values.IdPublication;
 import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
 import com.co.sofka.Bakimi.Domain.username.values.Tittle;
 
-public class PublicationUpdated extends DomainEvent {
+public class UpdatePublication implements Command {
     private final IdPublication idPublication;
     private final Tittle tittle;
     private final IdUsuario idUsuario;
     private final Contents contents;
 
-
-    public PublicationUpdated(IdPublication idPublication, Tittle tittle, IdUsuario idUsuario, Contents contents) {
-        super("blog.updated");
+    public UpdatePublication(IdPublication idPublication, Tittle tittle, IdUsuario idUsuario, Contents contents) {
         this.idPublication = idPublication;
         this.tittle = tittle;
         this.idUsuario = idUsuario;
         this.contents = contents;
     }
 
-    public IdPublication getIdPublication() {
+    public IdPublication idPublication() {
         return idPublication;
     }
 
