@@ -72,7 +72,6 @@ public class UsernameController {
         return string;
 
     }
-
     private UpdateUsernameUseCase.Response executedUseCase(UpdateUsername command){
         var events = UseCaseHandler.getInstance()
                 .syncExecutor(updateUsernameUseCase, new RequestCommand<>(command))
@@ -89,7 +88,6 @@ public class UsernameController {
     public UsernameData searchUsernameId(@PathVariable("id") String id) {
         return (tranformationUsernameUseCase.searchUsernameId(id));
     }
-
     @DeleteMapping(value = "api/delete/{id}")
     public String delete(@PathVariable("id") String id){
         return (tranformationUsernameUseCase.delete(id));
