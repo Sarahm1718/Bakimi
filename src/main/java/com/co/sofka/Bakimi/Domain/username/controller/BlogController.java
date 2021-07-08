@@ -34,7 +34,7 @@ public class BlogController {
                        @PathVariable("idUsuario")String idUsuario,
                        @PathVariable("contents") String contents
                        ){
-        var command = new CreatePublication(IdPublication.of(idb), new Tittle(tittle), new IdUsuario(idUsuario), new Contents(contents));
+        CreatePublication command = new CreatePublication(IdPublication.of(idb), new Tittle(tittle), new IdUsuario(idUsuario), new Contents(contents));
         CreatePublicationUseCase.Response publicationCreated = executeUseCase(command);
         String string = "{"
                 + "\"idb\":" + "\""+publicationCreated.getResponse().identity()+"\""+ ","
@@ -45,10 +45,10 @@ public class BlogController {
         return string;
     }
     private CreatePublicationUseCase.Response executeUseCase(CreatePublication command) {
-        var events = UseCaseHandler.getInstance()
+        CreatePublicationUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(createPublicationUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var PublicationCreated = events;
+        CreatePublicationUseCase.Response PublicationCreated = events;
         return PublicationCreated;
     }
 
@@ -58,7 +58,7 @@ public class BlogController {
                           @PathVariable("idUsuario")String idUsuario,
                           @PathVariable("contents") String contents
     ){
-        var command = new UpdatePublication(IdPublication.of(idb), new Tittle(tittle), new IdUsuario(idUsuario), new Contents(contents));
+        UpdatePublication command = new UpdatePublication(IdPublication.of(idb), new Tittle(tittle), new IdUsuario(idUsuario), new Contents(contents));
         UpdateBlogUseCase.Response publicationUpdated = executeUseCase(command);
         String string = "{"
                 + "\"idb\":" + "\""+publicationUpdated.getResponse().identity()+"\""+ ","
@@ -69,10 +69,10 @@ public class BlogController {
         return string;
     }
     private UpdateBlogUseCase.Response executeUseCase(UpdatePublication command) {
-        var events = UseCaseHandler.getInstance()
+        UpdateBlogUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(updateBlogUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var PublicationUpdated = events;
+        UpdateBlogUseCase.Response PublicationUpdated = events;
         return (UpdateBlogUseCase.Response) PublicationUpdated;
     }
     @GetMapping(value = "api/blog")

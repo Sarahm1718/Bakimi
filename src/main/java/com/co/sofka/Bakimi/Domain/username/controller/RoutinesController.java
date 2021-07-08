@@ -34,7 +34,7 @@ public class RoutinesController{
                        @PathVariable("typeSkin") String TypeSkin
 
     ) {
-        var command = new CreateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines),  IdUsuario.of(idUsuario), new TypeSkin(TypeSkin));
+        CreateRoutines command = new CreateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines),  IdUsuario.of(idUsuario), new TypeSkin(TypeSkin));
         CreateRoutinesUseCase.Response routinesCreated = executedUseCase(command);
         String string="{"
                 + "\"idr\":" + "\""+routinesCreated.getResponse().identity().value()+"\""+ ","
@@ -47,10 +47,10 @@ public class RoutinesController{
     }
 
     private CreateRoutinesUseCase.Response executedUseCase(CreateRoutines command) {
-        var events = UseCaseHandler.getInstance()
+        CreateRoutinesUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(createRoutinesUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var RoutinesCreated = events;
+        CreateRoutinesUseCase.Response RoutinesCreated = events;
         return RoutinesCreated;
     }
 
@@ -62,7 +62,7 @@ public class RoutinesController{
                           @PathVariable("typeSkin") String TypeSkin
 
     ) {
-        var command = new UpdateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines),  IdUsuario.of(idUsuario), new TypeSkin(TypeSkin));
+        UpdateRoutines command = new UpdateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines),  IdUsuario.of(idUsuario), new TypeSkin(TypeSkin));
         UpdateRoutinesUseCase.Response routinesUpdated = executedUseCase(command);
         String string="{"
                 + "\"idr\":" + "\""+routinesUpdated.getResponse().identity().value()+"\""+ ","
@@ -75,10 +75,10 @@ public class RoutinesController{
     }
 
     private UpdateRoutinesUseCase.Response executedUseCase(UpdateRoutines command) {
-        var events = UseCaseHandler.getInstance()
+        UpdateRoutinesUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(updateRoutinesUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var RoutinesUpdated = events;
+        UpdateRoutinesUseCase.Response RoutinesUpdated = events;
         return (UpdateRoutinesUseCase.Response) RoutinesUpdated;
     }
 

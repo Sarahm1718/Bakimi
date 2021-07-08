@@ -18,8 +18,8 @@ public class UpdateBlogUseCase extends UseCase<RequestCommand<UpdatePublication>
 
     @Override
     public void executeUseCase(RequestCommand<UpdatePublication> updatePublicationRequestCommand) {
-        var command = updatePublicationRequestCommand.getCommand();
-        var blog = new Blog(command.idPublication(), command.tittle(), command.idUsuario(), command.contents());
+        UpdatePublication command = updatePublicationRequestCommand.getCommand();
+        Blog blog = new Blog(command.idPublication(), command.tittle(), command.idUsuario(), command.contents());
         data.save(transform(blog));
         emit().onResponse(new Response(blog));
     }

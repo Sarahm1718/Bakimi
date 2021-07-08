@@ -18,8 +18,8 @@ public class UpdateRoutinesUseCase extends UseCase<RequestCommand<UpdateRoutines
     @Override
     public void executeUseCase(RequestCommand<UpdateRoutines> updateRoutinesRequestCommand) {
 
-        var command = updateRoutinesRequestCommand.getCommand();
-        var routines = new Routines(command.routinesId(), command.routinesName(), command.descriptionRoutines(), command.idUsuario(), command.typeSkin());
+        UpdateRoutines command = updateRoutinesRequestCommand.getCommand();
+        Routines routines = new Routines(command.routinesId(), command.routinesName(), command.descriptionRoutines(), command.idUsuario(), command.typeSkin());
         data.save(transform(routines));
         emit().onResponse(new Response(routines));
     }

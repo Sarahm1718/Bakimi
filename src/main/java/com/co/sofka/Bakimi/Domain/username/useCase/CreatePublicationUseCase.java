@@ -18,8 +18,8 @@ public class CreatePublicationUseCase extends UseCase<RequestCommand<CreatePubli
 
     @Override
     public void executeUseCase(RequestCommand<CreatePublication> createPublicationRequestCommand) {
-        var command = createPublicationRequestCommand.getCommand();
-        var blog = new Blog(command.idPublication(), command.tittle(), command.idUsuario(), command.contents());
+        CreatePublication command = createPublicationRequestCommand.getCommand();
+        Blog blog = new Blog(command.idPublication(), command.tittle(), command.idUsuario(), command.contents());
         data.save(transform(blog));
         emit().onResponse(new Response(blog));
     }

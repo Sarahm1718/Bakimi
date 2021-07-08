@@ -34,7 +34,7 @@ public class UsernameController {
             @PathVariable("name")String name,
             @PathVariable("email")String email,
             @PathVariable("typeSkin")String typeSkin){
-        var command = new CreateUsername(IdUsuario.of(id), new Name(name), new Email(email), new TypeSkin(typeSkin));
+        CreateUsername command = new CreateUsername(IdUsuario.of(id), new Name(name), new Email(email), new TypeSkin(typeSkin));
         CreateUsernameUserCase.Response usernameCreated = executedUseCase(command);
 
         String string = "{"
@@ -47,10 +47,10 @@ public class UsernameController {
     }
 
     private CreateUsernameUserCase.Response executedUseCase(CreateUsername command) {
-        var events = UseCaseHandler.getInstance()
+        CreateUsernameUserCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(createUsernameUserCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var UsernameCreated = events;
+        CreateUsernameUserCase.Response UsernameCreated = events;
         return UsernameCreated;
     }
 
@@ -60,7 +60,7 @@ public class UsernameController {
             @PathVariable("name")String name,
             @PathVariable("email")String email,
             @PathVariable("typeSkin")String typeSkin) {
-        var command = new UpdateUsername(IdUsuario.of(id), new Name(name), new Email(email), new TypeSkin(typeSkin));
+        UpdateUsername command = new UpdateUsername(IdUsuario.of(id), new Name(name), new Email(email), new TypeSkin(typeSkin));
         UpdateUsernameUseCase.Response usernameUpdated = executedUseCase(command);
 
         String string = "{"
@@ -73,10 +73,10 @@ public class UsernameController {
 
     }
     private UpdateUsernameUseCase.Response executedUseCase(UpdateUsername command){
-        var events = UseCaseHandler.getInstance()
+        UpdateUsernameUseCase.Response events = UseCaseHandler.getInstance()
                 .syncExecutor(updateUsernameUseCase, new RequestCommand<>(command))
                 .orElseThrow();
-        var UsernameUpdated = events;
+        UpdateUsernameUseCase.Response UsernameUpdated = events;
         return (UpdateUsernameUseCase.Response) UsernameUpdated;
     }
     @GetMapping(value = "api/username")

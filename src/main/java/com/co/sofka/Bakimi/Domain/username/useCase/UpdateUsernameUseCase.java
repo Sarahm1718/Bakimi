@@ -16,8 +16,8 @@ public class UpdateUsernameUseCase extends UseCase<RequestCommand<UpdateUsername
     private IUsernameDataRepository data;
     @Override
     public void executeUseCase(RequestCommand<UpdateUsername> updateUsernameRequestCommand) {
-        var command =updateUsernameRequestCommand.getCommand();
-        var username = new Username(command.idUsuario(), command.name(), command.email(), command.typeSkin());
+        UpdateUsername command =updateUsernameRequestCommand.getCommand();
+        Username username = new Username(command.idUsuario(), command.name(), command.email(), command.typeSkin());
         data.save(transform(username));
         emit().onResponse(new Response(username));
     }
