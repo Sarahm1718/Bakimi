@@ -12,13 +12,11 @@ public class UsernameData {
     protected String id;
     protected String name;
     protected String email;
-    protected String typeSkin;
 
-    public UsernameData(String id, String name, String email, String typeSkin) {
+    public UsernameData(String id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.typeSkin = typeSkin;
     }
     public UsernameData(){
 
@@ -46,13 +44,5 @@ public class UsernameData {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getTypeSkin() {
-        return typeSkin;
-    }
-
-    public void setTypeSkin(String typeSkin) {
-        this.typeSkin = typeSkin;
     }
 }

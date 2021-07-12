@@ -4,20 +4,17 @@ import co.com.sofka.domain.generic.Command;
 import com.co.sofka.Bakimi.Domain.username.values.Email;
 import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
 import com.co.sofka.Bakimi.Domain.username.values.Name;
-import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
 
 public class CreateUsername implements Command {
     private final IdUsuario idUsuario;
     private final Name name;
     private final Email email;
-    private final TypeSkin typeSkin;
 
 
-    public CreateUsername(IdUsuario idUsuario, Name name, Email email, TypeSkin typeSkin) {
+    public CreateUsername(IdUsuario idUsuario, Name name, Email email) {
         this.idUsuario = idUsuario;
         this.name = name;
         this.email = email;
-        this.typeSkin = typeSkin;
     }
 
     public IdUsuario idUsuario() {
@@ -30,9 +27,5 @@ public class CreateUsername implements Command {
 
     public Email email() {
         return email;
-    }
-
-    public TypeSkin typeSkin() {
-        return typeSkin;
     }
 }

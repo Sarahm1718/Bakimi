@@ -11,7 +11,6 @@ import com.co.sofka.Bakimi.Domain.username.useCase.UpdateUsernameUseCase;
 import com.co.sofka.Bakimi.Domain.username.values.Email;
 import com.co.sofka.Bakimi.Domain.username.values.IdUsuario;
 import com.co.sofka.Bakimi.Domain.username.values.Name;
-import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,20 +27,19 @@ public class UsernameController {
     @Autowired
     private TranformationUsernameUseCase tranformationUsernameUseCase;
 
-    @PostMapping(value= "api/save/{id}/{name}/{email}/{typeSkin}")
+    @PostMapping(value= "api/save/{id}/{name}/{email}")
     public String save(
             @PathVariable("id")String id,
             @PathVariable("name")String name,
-            @PathVariable("email")String email,
-            @PathVariable("typeSkin")String typeSkin){
-        CreateUsername command = new CreateUsername(IdUsuario.of(id), new Name(name), new Email(email), new TypeSkin(typeSkin));
+            @PathVariable("email")String email
+            ){
+        CreateUsername command = new CreateUsername(IdUsuario.of(id), new Name(name), new Email(email));
         CreateUsernameUserCase.Response usernameCreated = executedUseCase(command);
 
         String string = "{"
                 + "\"id\":" + "\""+usernameCreated.getResponse().identity()+"\""+ ","
                 + "\"name\":" + "\""+usernameCreated.getResponse().getName().value()+"\""+ ","
-                + "\"email\":" + "\""+usernameCreated.getResponse().getEmail().value()+"\""+ ","
-                + "\"typeSkin\":" + "\""+usernameCreated.getResponse().getTypeSkin().value()
+                + "\"email\":" + "\""+usernameCreated.getResponse().getEmail().value()
                 +"}";
         return string;
     }
@@ -54,20 +52,18 @@ public class UsernameController {
         return UsernameCreated;
     }
 
-    @PutMapping(value = "api/update/{id}/{name}/{email}/{typeSkin}")
+    @PutMapping(value = "api/update/{id}/{name}/{email}")
     public String update(
             @PathVariable("id")String id,
             @PathVariable("name")String name,
-            @PathVariable("email")String email,
-            @PathVariable("typeSkin")String typeSkin) {
-        UpdateUsername command = new UpdateUsername(IdUsuario.of(id), new Name(name), new Email(email), new TypeSkin(typeSkin));
+            @PathVariable("email")String email){
+        UpdateUsername command = new UpdateUsername(IdUsuario.of(id), new Name(name), new Email(email));
         UpdateUsernameUseCase.Response usernameUpdated = executedUseCase(command);
 
         String string = "{"
                 + "\"id\":" + "\""+usernameUpdated.getResponse().identity()+"\""+ ","
                 + "\"name\":" + "\""+usernameUpdated.getResponse().getName().value()+"\""+ ","
-                + "\"email\":" + "\""+usernameUpdated.getResponse().getEmail().value()+"\""+ ","
-                + "\"typeSkin\":" + "\""+usernameUpdated.getResponse().getTypeSkin().value()
+                + "\"email\":" + "\""+usernameUpdated.getResponse().getEmail().value()
                 +"}";
         return string;
 

@@ -13,15 +13,14 @@ public class Username extends AggregateRoot<IdUsuario> {
     @Id
     protected String usuarioId;
     protected Name name;
-    protected Email email;
-    protected TypeSkin typeSkin;
 
-    public Username(IdUsuario entityId, Name name, Email email, TypeSkin typeSkin) {
+    protected Email email;
+
+    public Username(IdUsuario entityId, Name name, Email email) {
         super(entityId);
         this.usuarioId = entityId.value();
         this.name = name;
         this.email = email;
-        this.typeSkin = typeSkin;
     }
 
     public String getUsuarioId() {
@@ -38,9 +37,5 @@ public class Username extends AggregateRoot<IdUsuario> {
 
     public Email getEmail() {
         return email;
-    }
-
-    public TypeSkin getTypeSkin() {
-        return typeSkin;
     }
 }

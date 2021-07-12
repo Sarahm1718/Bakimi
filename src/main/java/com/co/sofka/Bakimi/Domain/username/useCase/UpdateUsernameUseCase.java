@@ -17,13 +17,13 @@ public class UpdateUsernameUseCase extends UseCase<RequestCommand<UpdateUsername
     @Override
     public void executeUseCase(RequestCommand<UpdateUsername> updateUsernameRequestCommand) {
         UpdateUsername command =updateUsernameRequestCommand.getCommand();
-        Username username = new Username(command.idUsuario(), command.name(), command.email(), command.typeSkin());
+        Username username = new Username(command.idUsuario(), command.name(), command.email());
         data.save(transform(username));
         emit().onResponse(new Response(username));
     }
 
     public UsernameData transform(Username username){
-        UsernameData usernameData = new UsernameData(username.getUsuarioId(), username.getName().value(), username.getEmail().value(), username.getTypeSkin().value());
+        UsernameData usernameData = new UsernameData(username.getUsuarioId(), username.getName().value(), username.getEmail().value());
         return usernameData;
     }
 

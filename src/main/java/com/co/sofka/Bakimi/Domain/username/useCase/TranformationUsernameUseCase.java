@@ -11,7 +11,7 @@ public class TranformationUsernameUseCase {
     @Autowired
     private IUsernameDataRepository data;
     public UsernameData transform(Username username){
-        UsernameData usernameData = new UsernameData(username.getUsuarioId(), username.getName().value(), username.getEmail().value(), username.getTypeSkin().value());
+        UsernameData usernameData = new UsernameData(username.getUsuarioId(), username.getName().value(), username.getEmail().value());
         return (usernameData);
     }
     public  Iterable<UsernameData> searchUsername(){

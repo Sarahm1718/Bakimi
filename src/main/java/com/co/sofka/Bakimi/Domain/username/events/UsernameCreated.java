@@ -11,15 +11,13 @@ public class UsernameCreated extends DomainEvent {
     private final IdUsuario idUsuario;
     private final Name name;
     private final Email email;
-    private final TypeSkin typeSkin;
 
 
-    public UsernameCreated(IdUsuario idUsuario, Name name, Email email, TypeSkin typeSkin) {
+    public UsernameCreated(IdUsuario idUsuario, Name name, Email email) {
         super("username.created");
         this.idUsuario = idUsuario;
         this.name = name;
         this.email = email;
-        this.typeSkin = typeSkin;
     }
 
     public IdUsuario getIdUsuario() {
@@ -34,7 +32,4 @@ public class UsernameCreated extends DomainEvent {
         return email;
     }
 
-    public TypeSkin typeSkin() {
-        return typeSkin;
-    }
 }

@@ -10,13 +10,11 @@ public class UpdateUsername implements Command {
     private final IdUsuario idUsuario;
     private final Name name;
     private final Email email;
-    private final TypeSkin typeSkin;
 
-    public UpdateUsername(IdUsuario idUsuario, Name name, Email email, TypeSkin typeSkin) {
+    public UpdateUsername(IdUsuario idUsuario, Name name, Email email) {
         this.idUsuario = idUsuario;
         this.name = name;
         this.email = email;
-        this.typeSkin = typeSkin;
     }
 
     public IdUsuario idUsuario() {
@@ -29,9 +27,5 @@ public class UpdateUsername implements Command {
 
     public Email email() {
         return email;
-    }
-
-    public TypeSkin typeSkin() {
-        return typeSkin;
     }
 }

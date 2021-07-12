@@ -2,13 +2,11 @@ package com.co.sofka.Bakimi.Domain.username;
 
 import com.co.sofka.Bakimi.Domain.username.values.Email;
 import com.co.sofka.Bakimi.Domain.username.values.Name;
-import com.co.sofka.Bakimi.Domain.username.values.TypeSkin;
 
 public final class UsernameBuilder {
     protected String usuarioId;
     protected Name name;
     protected Email email;
-    protected TypeSkin typeSkin;
 
     private UsernameBuilder() {
     }
@@ -32,13 +30,8 @@ public final class UsernameBuilder {
         return this;
     }
 
-    public UsernameBuilder withTypeSkin(TypeSkin typeSkin) {
-        this.typeSkin = typeSkin;
-        return this;
-    }
-
     public Username build() {
-        Username username = new Username(null, name, email, typeSkin);
+        Username username = new Username(null, name, email);
         username.setUsuarioId(usuarioId);
         return username;
     }

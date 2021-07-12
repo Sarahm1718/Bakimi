@@ -27,7 +27,7 @@ public class BlogController {
 
     @Autowired
     private UpdateBlogUseCase updateBlogUseCase;
-
+   // sara.heroku.com/apu
     @PostMapping(value="api/guarder/{idb}/{tittle}/{idUsuario}/{contents}")
     public String guarder(@PathVariable("idb")String idb,
                        @PathVariable("tittle")String tittle,
