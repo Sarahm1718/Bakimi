@@ -8,14 +8,12 @@ public class RoutineData {
     protected String idr;
     protected String routinesName;
     protected String descriptionRoutines;
-    protected String idUsuario;
     protected String typeSkin;
 
-    public RoutineData(String idr, String routinesName, String descriptionRoutines, String idUsuario, String typeSkin) {
+    public RoutineData(String idr, String routinesName, String descriptionRoutines, String typeSkin) {
         this.idr = idr;
         this.routinesName = routinesName;
         this.descriptionRoutines = descriptionRoutines;
-        this.idUsuario = idUsuario;
         this.typeSkin = typeSkin;
     }
     public RoutineData(){
@@ -44,14 +42,6 @@ public class RoutineData {
 
     public void setDescriptionRoutines(String descriptionRoutines) {
         this.descriptionRoutines = descriptionRoutines;
-    }
-
-    public String getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     public String getTypeSkin() {

@@ -13,15 +13,13 @@ public  class Routines extends Entity<RoutinesId> {
     protected String idRoutines;
     protected RoutinesName routinesName;
     protected DescriptionRoutines descriptionRoutines;
-    protected IdUsuario idUsuario;
     protected TypeSkin typeSkin;
 
-    public Routines(RoutinesId entityId, RoutinesName routinesName, DescriptionRoutines descriptionRoutines, IdUsuario idUsuario, TypeSkin typeSkin) {
+    public Routines(RoutinesId entityId, RoutinesName routinesName, DescriptionRoutines descriptionRoutines, TypeSkin typeSkin) {
         super(entityId);
         this.idRoutines= entityId.value();
         this.routinesName = routinesName;
         this.descriptionRoutines = descriptionRoutines;
-        this.idUsuario = idUsuario;
         this.typeSkin = typeSkin;
     }
 
@@ -39,10 +37,6 @@ public  class Routines extends Entity<RoutinesId> {
 
     public DescriptionRoutines getDescriptionRoutines() {
         return descriptionRoutines;
-    }
-
-    public IdUsuario getIdUsuario() {
-        return idUsuario;
     }
 
     public TypeSkin getTypeSkin() {

@@ -7,15 +7,13 @@ public class RoutinesUpdated extends DomainEvent {
     private  final RoutinesId routinesId;
     private final RoutinesName routinesName;
     private final DescriptionRoutines descriptionRoutines;
-    private final IdUsuario idUsuario;
     private final TypeSkin typeSkin;
 
-    public RoutinesUpdated(RoutinesId routinesId, RoutinesName routinesName, DescriptionRoutines descriptionRoutines, IdUsuario idUsuario, TypeSkin typeSkin) {
+    public RoutinesUpdated(RoutinesId routinesId, RoutinesName routinesName, DescriptionRoutines descriptionRoutines,  TypeSkin typeSkin) {
         super("routines.updated");
         this.routinesId = routinesId;
         this.routinesName = routinesName;
         this.descriptionRoutines = descriptionRoutines;
-        this.idUsuario = idUsuario;
         this.typeSkin = typeSkin;
     }
 
@@ -29,10 +27,6 @@ public class RoutinesUpdated extends DomainEvent {
 
     public DescriptionRoutines descriptionRoutines() {
         return descriptionRoutines;
-    }
-
-    public IdUsuario idUsuario() {
-        return idUsuario;
     }
 
     public TypeSkin typeSkin() {

@@ -11,7 +11,7 @@ public class TransformationRoutinesUseCase {
     @Autowired
     public IRoutineDataRepository data;
     public RoutineData transform(Routines routines){
-        RoutineData routineData= new RoutineData(routines.getIdRoutines(), routines.getRoutinesName().value(), routines.getDescriptionRoutines().value(), routines.getIdUsuario().value(), routines.getTypeSkin().value());
+        RoutineData routineData= new RoutineData(routines.getIdRoutines(), routines.getRoutinesName().value(), routines.getDescriptionRoutines().value(), routines.getTypeSkin().value());
         return routineData;
     }
    public Iterable<RoutineData> searchRoutine(){

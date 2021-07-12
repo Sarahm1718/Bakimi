@@ -3,7 +3,6 @@ import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import com.co.sofka.Bakimi.Domain.username.commands.CreateRoutines;
 import com.co.sofka.Bakimi.Domain.username.commands.UpdateRoutines;
-import com.co.sofka.Bakimi.Domain.username.events.RoutinesUpdated;
 import com.co.sofka.Bakimi.Domain.username.repository.RoutineData;
 import com.co.sofka.Bakimi.Domain.username.useCase.CreateRoutinesUseCase;
 import com.co.sofka.Bakimi.Domain.username.useCase.TransformationRoutinesUseCase;
@@ -26,21 +25,20 @@ public class RoutinesController{
     private TransformationRoutinesUseCase transformationRoutinesUseCase;
 
 
-    @PostMapping(value = "api/guardar/{idr}/{routinesName}/{descriptionRoutines}/{idUsuario}/{typeSkin}")
+    @PostMapping(value = "api/guardar/{idr}/{routinesName}/{descriptionRoutines}/{typeSkin}")
     public String guardar(@PathVariable("idr") String idr,
                        @PathVariable("routinesName") String routinesName,
                        @PathVariable("descriptionRoutines") String descriptionRoutines,
-                       @PathVariable("idUsuario") String idUsuario,
                        @PathVariable("typeSkin") String TypeSkin
 
     ) {
-        CreateRoutines command = new CreateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines),  IdUsuario.of(idUsuario), new TypeSkin(TypeSkin));
+        CreateRoutines command = new CreateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines), new TypeSkin(TypeSkin));
         CreateRoutinesUseCase.Response routinesCreated = executedUseCase(command);
         String string="{"
                 + "\"idr\":" + "\""+routinesCreated.getResponse().identity().value()+"\""+ ","
                 + "\"nameRutines\":" + "\""+routinesCreated.getResponse().getRoutinesName().value()+"\""+ ","
                 + "\"descriptionRoutines\":" + "\""+routinesCreated.getResponse().getDescriptionRoutines().value()+"\""+ ","
-                + "\"idUsuario\":" + "\""+routinesCreated.getResponse().getIdUsuario().value()+"\""+ ","
+
                 + "\"typeSkin\":" + "\""+routinesCreated.getResponse().getTypeSkin().value()
                 +"}";
         return string;
@@ -54,21 +52,19 @@ public class RoutinesController{
         return RoutinesCreated;
     }
 
-    @PutMapping(value = "api/updateroutine/{idr}/{routinesName}/{descriptionRoutines}/{idUsuario}/{typeSkin}")
+    @PutMapping(value = "api/updateroutine/{idr}/{routinesName}/{descriptionRoutines}/{typeSkin}")
     public String updateroutine(@PathVariable("idr") String idr,
                           @PathVariable("routinesName") String routinesName,
                           @PathVariable("descriptionRoutines") String descriptionRoutines,
-                          @PathVariable("idUsuario") String idUsuario,
                           @PathVariable("typeSkin") String TypeSkin
 
     ) {
-        UpdateRoutines command = new UpdateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines),  IdUsuario.of(idUsuario), new TypeSkin(TypeSkin));
+        UpdateRoutines command = new UpdateRoutines(RoutinesId.of(idr), new RoutinesName(routinesName), new DescriptionRoutines(descriptionRoutines), new TypeSkin(TypeSkin));
         UpdateRoutinesUseCase.Response routinesUpdated = executedUseCase(command);
         String string="{"
                 + "\"idr\":" + "\""+routinesUpdated.getResponse().identity().value()+"\""+ ","
                 + "\"nameRutines\":" + "\""+routinesUpdated.getResponse().getRoutinesName().value()+"\""+ ","
                 + "\"descriptionRoutines\":" + "\""+routinesUpdated.getResponse().getDescriptionRoutines().value()+"\""+ ","
-                + "\"idUsuario\":" + "\""+routinesUpdated.getResponse().getIdUsuario().value()+"\""+ ","
                 + "\"typeSkin\":" + "\""+routinesUpdated.getResponse().getTypeSkin().value()
                 +"}";
         return string;

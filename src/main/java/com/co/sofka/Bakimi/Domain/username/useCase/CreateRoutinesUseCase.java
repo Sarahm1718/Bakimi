@@ -19,19 +19,18 @@ public class CreateRoutinesUseCase extends UseCase<RequestCommand<CreateRoutines
     @Override
     public void executeUseCase(RequestCommand<CreateRoutines> createRoutinesRequestCommand) {
         CreateRoutines command = createRoutinesRequestCommand.getCommand();
-            Routines routines = new Routines(command.routinesId(), command.routinesName(), command.descriptionRoutines(), command.idUsuario(), command.typeSkin());
+            Routines routines = new Routines(command.routinesId(), command.routinesName(), command.descriptionRoutines(), command.typeSkin());
             data.save(transform(routines));
             emit().onResponse(new Response(routines));
         }
         public RoutineData transform(Routines routines){
-        RoutineData routineData = new RoutineData(routines.getIdRoutines(), routines.getRoutinesName().value(), routines.getDescriptionRoutines().value(), routines.getIdUsuario().value(), routines.getTypeSkin().value());
+        RoutineData routineData = new RoutineData(routines.getIdRoutines(), routines.getRoutinesName().value(), routines.getDescriptionRoutines().value(),  routines.getTypeSkin().value());
         return routineData;
         }
 
     public static class Response implements UseCase.ResponseValues{
 
         private Routines response;
-
 
         public Response(Routines routines) {
             this.response=routines;

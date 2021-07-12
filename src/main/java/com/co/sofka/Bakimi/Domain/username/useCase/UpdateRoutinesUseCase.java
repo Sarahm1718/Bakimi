@@ -19,12 +19,12 @@ public class UpdateRoutinesUseCase extends UseCase<RequestCommand<UpdateRoutines
     public void executeUseCase(RequestCommand<UpdateRoutines> updateRoutinesRequestCommand) {
 
         UpdateRoutines command = updateRoutinesRequestCommand.getCommand();
-        Routines routines = new Routines(command.routinesId(), command.routinesName(), command.descriptionRoutines(), command.idUsuario(), command.typeSkin());
+        Routines routines = new Routines(command.routinesId(), command.routinesName(), command.descriptionRoutines(), command.typeSkin());
         data.save(transform(routines));
         emit().onResponse(new Response(routines));
     }
     public RoutineData transform(Routines routines){
-        RoutineData routineData = new RoutineData(routines.getIdRoutines(), routines.getRoutinesName().value(), routines.getDescriptionRoutines().value(), routines.getIdUsuario().value(), routines.getTypeSkin().value());
+        RoutineData routineData = new RoutineData(routines.getIdRoutines(), routines.getRoutinesName().value(), routines.getDescriptionRoutines().value(), routines.getTypeSkin().value());
         return routineData;
     }
 
